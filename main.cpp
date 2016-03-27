@@ -7,7 +7,8 @@ void drawCharSquare(char **square, int n);
 
 int main(int argc, char **argv)
 {
-	int n = atoi(argv[1]);			//wielkosc kwadratu
+	int n = atoi(argv[1]);
+	srand(atoi(argv[2]));			
 	drawCharSquare(charSquare(n), n);	
 }
 
@@ -22,7 +23,7 @@ char **charSquare(int n)
 	{
 		for(int i = 0; i < n; i++)
 		{
-			square[f][i] = (rand()%27)+96;
+			square[f][i] = (rand()%25)+97;
 		}
 	}
 	return square;
