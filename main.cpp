@@ -7,17 +7,40 @@ void drawCharSquare(char **square, int n);
 
 int main(int argc, char **argv)
 {
-	int n;
+	int n = atoi(argv[1]);			//wielkosc kwadratu
 	drawCharSquare(charSquare(n), n);	
 }
 
 char **charSquare(int n)
 {
-	char **square;
+	char **square = new char*[n];
+	for(int i = 0; i < n; i++)
+	{
+		square[i] = new char [n];
+	}
+	for(int f = 0; f < n; f++)
+	{
+		for(int i = 0; i < n; i++)
+		{
+			square[f][i] = (rand()%27)+96;
+		}
+	}
 	return square;
 }
 
 void drawCharSquare(char **square, int n)
 {
-
-} //andrzej
+	for(int f = 0; f < n; f++)
+	{
+		for(int i = 0; i < n; i++)
+		{
+			printf("%c ",square[f][i]);
+		}
+		printf("\n");
+	}	
+	for(int i = 0; i < n; i++)
+	{
+		delete [] square[i];
+	}
+	delete [] square;
+} //ładnie mi poszło
