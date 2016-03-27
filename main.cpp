@@ -19,26 +19,25 @@ char **charSquare(int n)
 	{
 		square[i] = new char [n];
 	}
-	for(int f = 0; f < n; f++)
+	for(int f = 0; f < n*n; f++)
 	{
-		for(int i = 0; i < n; i++)
-		{
-			square[f][i] = (rand()%25)+97;
-		}
+		square[f/n][f%n] = (rand()%25)+97;	
 	}
 	return square;
 }
 
 void drawCharSquare(char **square, int n)
 {
-	for(int f = 0; f < n; f++)
-	{
-		for(int i = 0; i < n; i++)
+	int sum = 0;
+	for(int f = 0; f < n*n; f++)
+	{	
+		printf("%c ", square[f/n][f%n]);
+
+		if(f%n == n-1)
 		{
-			printf("%c ",square[f][i]);
-		}
-		printf("\n");
-	}	
+			printf("\n");
+		}	
+	}
 	for(int i = 0; i < n; i++)
 	{
 		delete [] square[i];
